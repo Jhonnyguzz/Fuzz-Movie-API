@@ -29,7 +29,7 @@ public class ApiKeyController {
         return apiKey;
     }
 
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "0 0 * * * *")
     public void deleteKeys() {
         apiKeyService.deleteAllApiKeys();
     }
