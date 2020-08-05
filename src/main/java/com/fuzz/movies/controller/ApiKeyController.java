@@ -2,6 +2,7 @@ package com.fuzz.movies.controller;
 
 import com.fuzz.movies.service.ApiKeyService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.UnsupportedEncodingException;
@@ -26,6 +27,11 @@ public class ApiKeyController {
         apiKeyService.addApiKey(newApiKey);
         apiKey.put("apiKey", newApiKey);
         return apiKey;
+    }
+
+    @Scheduled(cron = "0 * * * * *")
+    public void deleteKeys() {
+        apiKeyService.deleteAllApiKeys();
     }
 
 }

@@ -39,4 +39,9 @@ public class ApiKeyServiceImpl implements ApiKeyService {
         return Base64.getEncoder().encodeToString(hash);
     }
 
+    @Override
+    public void deleteAllApiKeys() {
+        apiKeyRepository.deleteAll();
+    }
+
 }

@@ -9,4 +9,6 @@ public interface ApiKeyService {
     void addApiKey(String apiKey);
 
     String createApiKey() throws NoSuchAlgorithmException;
+
+    void deleteAllApiKeys();
 }
